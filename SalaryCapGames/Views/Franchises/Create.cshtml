@@ -1,0 +1,71 @@
+﻿@model SalaryCapData.Data.Models.Franchise
+
+@{
+	ViewData[ "Title" ] = "Create";
+}
+<br />
+<br />
+<h2>Create Franchise</h2>
+<hr />
+
+<form asp-action="CreateAsync">
+	<div class="form-border">
+
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="Name" class="control-label"></label>
+			</div>
+			<div class="col-4">
+				<input asp-for="Name" class="form-control" />
+			</div>
+			<div class="col-4">
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="AbbreviatedName" class="control-label"></label>
+			</div>
+			<div class="col-4">
+				<input asp-for="AbbreviatedName" class="form-control" />
+			</div>
+			<div class="col-4">
+				<span asp-validation-for="AbbreviatedName" class="text-danger"></span>
+			</div>
+
+
+		</div>
+		@*<div class="form-group row">
+				<div class="col-2">
+					<label asp-for="ImageUrl" class="control-label"></label>
+				</div>
+				<div class="col-4">
+					<input asp-for="ImageUrl" class="form-control" />
+				</div>
+				<span asp-validation-for="ImageUrl" class="text-danger"></span>
+
+			</div>*@
+		<div class="form-group row">
+			<div class="col-2">
+				<label asp-for="LeagueId" class="control-label">Select League</label>
+			</div>
+			<div class="col-4">
+				<select asp-for="LeagueId" class="form-control" asp-items="ViewBag.LeagueId"></select>
+			</div>
+			<div class="col-4">
+				<a asp-action="Create" class="btn btn-default" asp-controller="League">Create League</a>
+			</div>
+		</div>
+		<div class="form-group">
+
+			<input type="submit" value="Create" class="btn btn-primary" />
+			<a asp-action="Index" class="btn btn-success">Back to List</a>
+
+		</div>
+	</div>
+</form>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync( "_ValidationScriptsPartial" );}
+}

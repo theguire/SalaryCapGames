@@ -1,0 +1,58 @@
+﻿@model SalaryCapData.Data.Models.League
+
+@{
+    ViewData[ "Title" ] = "Edit";
+}
+
+<br />
+<br />
+<h4>Edit League</h4>
+<hr />
+<form asp-action="Edit">
+    <div class="form-border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Commissioner" />
+        <input type="hidden" asp-for="CommissionerId" />
+
+        <input type="hidden" asp-for="Points" />
+        <input type="hidden" asp-for="Value" />
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="Name" class="control-label"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="MaxNumberFranchises" class="control-label"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="MaxNumberFranchises" class="form-control" />
+                <span asp-validation-for="MaxNumberFranchises" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="IsPrivate" class="control-label"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="IsPrivate" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync( "_ValidationScriptsPartial" );}
+}

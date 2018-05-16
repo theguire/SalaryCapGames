@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SalaryCapData.Data.Models.ApplicationUser>
+@{
+    ViewData[ "Title" ] = "Index";
+}
+
+<br />
+<br />
+<h2>Manage Users</h2>
+<br />
+<hr />
+
+<div class="form-border">
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor( m => m.Email ) </th>
+            <th>@Html.DisplayNameFor( m => m.PhoneNumber ) </th>
+
+
+        </tr>
+        @foreach ( var item in Model )
+        {
+
+            <tr>
+                <td>@Html.DisplayFor( m => item.Email )</td>
+                <td>@Html.DisplayFor( m => item.PhoneNumber )</td>
+                <td style="width:150px;">
+                    <div class="btn-group" role="group">
+                        <a href="@Url.Action("Edit/" + item.Id)" type="button" class="btn btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <a href="@Url.Action("Lock/" + item.Id)" type="button" class="btn btn-danger">
+                            <i class="fas fa-lock"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>
+
+
+
