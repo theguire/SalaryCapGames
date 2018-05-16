@@ -10,6 +10,7 @@ namespace SalaryCapData.Interfaces
         IEnumerable<ApplicationUser> GetAll();
         IEnumerable<ApplicationUser> GetAllFilteredByClaim( string claimIdentity );
         ApplicationUser Get( string Id );
+        
 
 
         Task UpdateAsync( ApplicationUser user );

@@ -11,9 +11,10 @@ using System;
 namespace SalaryCapData.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180516093140_Added NumberoFranchises")]
+    partial class AddedNumberoFranchises
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -522,7 +523,7 @@ namespace SalaryCapData.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("SalaryCapData.Data.Models.ApplicationUser", "Owner")
-                        .WithMany("Franchises")
+                        .WithMany()
                         .HasForeignKey("OwnerId");
                 });
 
@@ -537,7 +538,7 @@ namespace SalaryCapData.Migrations
             modelBuilder.Entity("SalaryCapData.Data.Models.League", b =>
                 {
                     b.HasOne("SalaryCapData.Data.Models.ApplicationUser", "Commissioner")
-                        .WithMany("Leagues")
+                        .WithMany()
                         .HasForeignKey("CommissionerId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -1,6 +1,6 @@
 ﻿@model SalaryCapData.Data.Models.League
 @{
-    ViewData["Title"] = "Detail";
+    ViewData[ "Title" ] = "Detail";
 }
 
 <br />
@@ -79,8 +79,10 @@
 
 
     <div class="form-group">
-        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.Id">Edit</a>
-        <a asp-action="Index" class="btn btn-success">Back to List</a>
+        @*<a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.Id">Edit</a>*@
+        @Html.Partial( "_EditButtonPartial", @Model.Id )
+        @Html.Partial( "_BackToListButtonPartial" )
+        @*<a asp-action="Index" class="btn btn-success">Back to List</a>*@
     </div>
 </div>
 

@@ -9,6 +9,7 @@
 <br />
 <h2>List of Franchises</h2>
 <hr />
+
 <p>
     @Html.Partial( "_CreateButtonPartial" )
 </p>
@@ -66,8 +67,11 @@
                     <td>
                         @Html.DisplayFor( modelItem => item.Owner.Email )
                     </td>
-                    <td>
-                        @Html.Partial( "_TableButtonPartial", item.Id )
+                    <td style="width:150px;">
+                        <div class="btn-group" role="group">
+                            @Html.Partial( "_EditButtonPartial", item.Id )
+                            @Html.Partial( "_DetailsButtonPartial", item.Id )
+                        </div>
                     </td>
                 </tr>
             }

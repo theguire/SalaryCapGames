@@ -234,7 +234,12 @@ namespace SalaryCapGame.Controllers
             ViewData[ "ReturnUrl" ] = returnUrl;
             if ( ModelState.IsValid )
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    NumberAvailFranchises = 5
+                };
                 var result = await _userManager.CreateAsync( user, model.Password );
                 if ( result.Succeeded )
                 {
@@ -246,6 +251,7 @@ namespace SalaryCapGame.Controllers
                         await _roleManager.CreateAsync( new IdentityRole( Common.OwnerUser ) );
 
                     await _userManager.AddToRoleAsync( user, Common.OwnerUser );
+
                     //if ( !await _roleManager.RoleExistsAsync( SD.AdminUser ) )
                     //    await _roleManager.CreateAsync( new IdentityRole( SD.AdminUser ) );
 

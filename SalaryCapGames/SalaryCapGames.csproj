@@ -7,11 +7,13 @@
 
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +25,10 @@
   <ItemGroup>
     <ProjectReference Include="..\SalaryCapData\SalaryCapData.csproj" />
     <ProjectReference Include="..\SalaryCapServices\SalaryCapServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\ButtonPartials\" />
   </ItemGroup>
 
 </Project>

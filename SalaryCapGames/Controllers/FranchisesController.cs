@@ -90,7 +90,9 @@ namespace SalaryCapGame.Controllers
         {
             if ( ModelState.IsValid )
             {
+
                 var ownerId = _userManager.GetUserId( User );
+
                 if ( ownerId == null )
                 {
                     throw new ApplicationException( $"Unable to load user with ID '{_userManager.GetUserId( User )}'." );
@@ -106,6 +108,10 @@ namespace SalaryCapGame.Controllers
                 franchise.Points = rnd.Next( 0, 20000 );
 
                 _franchises.Add( franchise );
+
+                franchise.Owner.NumberAvailFranchises--;
+                var ir = await _userManager.UpdateAsync( franchise.Owner );
+
                 return RedirectToAction( nameof( Index ) );
             }
 
@@ -223,6 +229,23 @@ namespace SalaryCapGame.Controllers
 
             return View( franchises );
         }
+
+
+        //GET
+        public IActionResult Purchase()
+        {
+            int selectedProduct = 0;
+
+            return View( selectedProduct );
+        }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Purchase( int selectedProduct )
+        //{
+
+        //}
+
     }
 
 

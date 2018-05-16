@@ -104,7 +104,8 @@ namespace SalaryCapServices
 
         public IEnumerable<Franchise> GetAllByOwnerId( string ownerId )
         {
-            return (GetAll().Where( f => f.OwnerId.Equals( ownerId )));
+            return (GetAll()
+                        .Where( f => f.OwnerId.Equals( ownerId )));
         }
 
         public IEnumerable<PlayerAssignment> GetPlayers( int id )
