@@ -9,7 +9,7 @@
 <h2>My Dashboard</h2>
 <hr />
 
-<div class="container">
+<div class="container-fluid">
     <div class="row ">
         <div class="col-6 form-border">
             @Html.Partial( "~/Views/Shared/Dashboard/_DashboardPartial.cshtml" )
@@ -19,6 +19,7 @@
         </div>
         <div class="col-6">
             @Html.Partial( "~/Views/Shared/Dashboard/_DashboardTradeTabsPartial.cshtml" )
+            @Html.Partial( "~/Views/Shared/Dashboard/_DashboardChartPartials.cshtml" )
         </div>
     </div>
 
@@ -29,5 +30,5 @@
 
     <script type="text/javascript" src="~/js/myDatatable.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="~/js/dashboard.index.js"></script>
+    <script src="~/js/Charts.js"></script>
 }
