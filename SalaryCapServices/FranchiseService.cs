@@ -113,24 +113,25 @@ namespace SalaryCapServices
             return (Get( id ).Players);
         }
 
-        public void AddPlayer( int franchiseId, int playerId )
-        {
-            PlayerAssignment playerAssign = new PlayerAssignment
-            {
-                FranchiseId = franchiseId,
-                PlayerId = playerId,
-                DateDrafted = DateTime.Now,
-            };
-            try
-            {
-                _context.PlayerAssignments.Add( playerAssign );
-                _context.SaveChanges();
-            }
-            catch ( Exception e )
-            {
-                ;
-            }
-        }
+        //public void AddPlayer( int franchiseId, int playerId )
+        //{
+        //    PlayerAssignment playerAssign = new PlayerAssignment
+        //    {
+        //        FranchiseId = franchiseId,
+        //        PlayerId = playerId,
+        //        DateDrafted = DateTime.Now,
+        //        PlayerPosition = 
+        //    };
+        //    try
+        //    {
+        //        _context.PlayerAssignments.Add( playerAssign );
+        //        _context.SaveChanges();
+        //    }
+        //    catch ( Exception e )
+        //    {
+        //        ;
+        //    }
+        //}
 
         public void Droplayer( int franchiseId, int playerId )
         {

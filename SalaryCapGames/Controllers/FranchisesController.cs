@@ -213,14 +213,17 @@ namespace SalaryCapGame.Controllers
         {
             return _franchises.Any( id );
         }
-        public ActionResult AddPlayerToFranchise( int franchiseId, int playerId, int ownerId )
-        {
-            var j = franchiseId;
-            var k = playerId;
+        //public ActionResult AddPlayerToFranchise( int franchiseId, int playerId )
+        //{
+        //    var j = franchiseId;
+        //    var k = playerId;
 
-            _franchises.AddPlayer( franchiseId, playerId );
-            return RedirectToAction( "Details", "Owners", new { id = ownerId } );
-        }
+        //    var player = _pl
+        //    _franchises.AddPlayer( franchiseId, playerId );
+        //    return RedirectToAction( "ViewPitchers", "Players");
+
+        //    // return RedirectToAction( "Details", "Owners", new { id = ownerId } );
+        //}
 
         public IActionResult Dashboard()
         {

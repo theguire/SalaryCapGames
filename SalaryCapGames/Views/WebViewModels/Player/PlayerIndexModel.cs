@@ -4,6 +4,7 @@ namespace SalaryCapGame.Views.WebViewModels
 {
 	public class PlayerIndexModel
 	{
-		public IEnumerable<PlayerIndexListingModel> Players { get; set; }
-	}
+		public IEnumerable<PitcherStatsViewModel> Pitchers { get; set; }
+        public IEnumerable<HitterStatsViewModel> Hitters { get; set; }
+    }
 }

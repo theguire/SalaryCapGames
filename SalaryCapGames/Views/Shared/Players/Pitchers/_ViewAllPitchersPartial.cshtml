@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SalaryCapData.Data.Models.PitcherStats>
+@*@section Pitchers
+    {*@
+@*<div class="container table-responsive  clearfix" width:100%; margin:0 auto;>*@
+
+@*<div style="width:100%; margin:0 auto;">*@
+
+@*<table class="no_gutters display sortable table-condensed table-bordered table-hover pull-left" id="pitchersTable" style="padding:0" cellspacing="0" cellpadding="0" border-spacing="0" width:80% border="0">*@
+@*<table id="pitchersTable" class="wrapper table-bordered table-hover nowrap" cellspacing="0" cellpadding="0" style="padding:0">*@
+<table id="pitchersTable" class="table row-border table-sm table-striped table-bordered" style="font-size:small; padding:0;" width:70%>
+
+    @Html.Partial( "~/Views/Shared/Players/Pitchers/_PitchersHeaderPartial.cshtml" )
+    <tbody>
+
+        @foreach ( var item in Model )
+        {
+        <tr class="no-gutters ">
+
+            <td class="details-control">
+                @*@Html.ActionLink( "Add", "AddPlayer", "Players", new { franchiseId = 1, playerId = item.PlayerId }, new { id = "myLink" } )*@
+                <i class="fa fa-plus-square" style="color:green;" aria-hidden="true"></i>
+            </td>
+            @*@Html.ActionLink( "Add", "AddPlayer", "Franchises", new { franchiseId = 6, playerId = item.Id, ownerId = Model.OwnerIndex.Id }, null )*@
+            @*@Html.ActionLink( "Add", "AddPlayerToFranchise", "Franchises", new { franchiseId = 6, playerId = item.PlayerId }, new { id = "myLink" } )*@
+            @*</td>*@
+            <td id="playerId" hidden>@Html.DisplayFor( i => item.Player.Id)</td>
+            <td class="text-left">@Html.DisplayFor( i => item.Player.FirstName ) @Html.DisplayFor( i => item.Player.LastName )</td>
+            <td class="table-col-text-center">@Html.DisplayFor( i => item.Player.Position )</td>
+            <td class="table-col-text-center">@Html.DisplayFor( i => item.Player.Team.Abbrev )</td>
+            <td class="table-col-text-right">$@Html.DisplayFor( i => item.Player.InitialValue )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.CompleteGames )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.Wins )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.Loses )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.Saves )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.Holds )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.InningsPitched )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.HitsAllowed )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.PitcherWalks )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.WHIP )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.Strikeouts )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.ERA )</td>
+            <td class="table-col-text-right">@Html.DisplayFor( i => item.Player.TotalPoints )</td>
+            @*@Html.Partial( "~/Views/Shared/Players/Pitchers/_ViewPitcherStats.cshtml", item..PitcherStats )*@
+
+        </tr>
+        }
+    </tbody>
+
+</table>
+@*</div>*@

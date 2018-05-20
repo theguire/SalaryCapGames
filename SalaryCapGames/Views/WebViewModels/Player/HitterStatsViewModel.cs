@@ -1,8 +1,11 @@
-﻿namespace SalaryCapGame.Views.WebViewModels
+﻿using SalaryCapData.Data.Models;
+
+namespace SalaryCapGame.Views.WebViewModels
 {
     public class HitterStatsViewModel
     {
         public int PlayerId { get; set; }
+        public int FranchiseId { get;set; }
         public PlayerIndexListingModel Player { get; set; }
         public int Hits { get; set; }
         public int Doubles { get; set; }

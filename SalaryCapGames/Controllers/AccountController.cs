@@ -252,14 +252,6 @@ namespace SalaryCapGame.Controllers
 
                     await _userManager.AddToRoleAsync( user, Common.OwnerUser );
 
-                    //if ( !await _roleManager.RoleExistsAsync( SD.AdminUser ) )
-                    //    await _roleManager.CreateAsync( new IdentityRole( SD.AdminUser ) );
-
-                    //if ( !await _roleManager.RoleExistsAsync( SD.OwnerUser ) )
-                    //    await _roleManager.CreateAsync( new IdentityRole( SD.OwnerUser ) );
-
-                    //await _userManager.AddToRoleAsync( user, SD.AdminUser );
-
                     _logger.LogInformation( "User created a new account with password." );
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync( user );

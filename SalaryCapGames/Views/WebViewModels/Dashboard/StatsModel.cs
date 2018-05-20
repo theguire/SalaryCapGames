@@ -5,7 +5,7 @@ namespace SalaryCapGame.Views.WebViewModels
     public class StatsModel
     {
         public IEnumerable<HitterStatsViewModel> HitterViewStats { get; set; }
-        public IEnumerable<PitcherStatsViewModel> PicthterViewStats { get; set; }
+        public IEnumerable<PitcherStatsViewModel> PitcherViewStats { get; set; }
 
     }
 }

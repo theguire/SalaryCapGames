@@ -1,39 +1,42 @@
 ﻿using SalaryCapData.Data.Models;
+
 using System.Collections.Generic;
 
 namespace SalaryCapData.Interfaces
 {
-	public interface IPlayer
-	{
-		IEnumerable<Player> GetAll();
-		IEnumerable<Player> GetAll( int count );
+    public interface IPlayer
+    {
+        IEnumerable<Player> GetAll();
+        IEnumerable<Player> GetAll( int count );
 
 
 
-		Player Get( int PlayerId );
+        Player Get( int PlayerId );
 
-		void Add( Player newPlayer );
-		void Update( Player player );
-		bool Exists( int id );
+        void Add( Player newPlayer );
+        void Update( Player player );
+        bool Exists( int id );
 
-		void AddPitcherStats( PitcherStats stats );
-		void AddHitterStats( HitterStats stats );
+        void AddPitcherStats( PitcherStats stats );
+        void AddHitterStats( HitterStats stats );
 
-		void AddPlayerPosition( PlayerPosition playerPosition );
+        void AddPlayerPosition( PlayerPosition playerPosition );
 
-		HitterStats GetPlayerHitterStats( int playerId );
-		PitcherStats GetPlayerPitcherStats( int playerId );
+        HitterStats GetPlayerHitterStats( int playerId );
+        PitcherStats GetPlayerPitcherStats( int playerId );
 
-		IEnumerable<HitterStats> GetHitterStats();
-		IEnumerable<PitcherStats> GetPitcherStats();
+        IEnumerable<HitterStats> GetHitterStats();
+        IEnumerable<PitcherStats> GetPitcherStats();
 
-		IEnumerable<HitterStats> GetHitterStats( int count );
-		IEnumerable<PitcherStats> GetPitcherStats( int count );
+        IEnumerable<HitterStats> GetHitterStats( int count );
+        IEnumerable<PitcherStats> GetPitcherStats( int count );
 
-		//IEnumerable<StatsIndexListModel> GetAllPlayerStats();
-		//IEnumerable<StatsIndexListModel> GetAllPlayerStats( int count );
+        void DraftPlayer( PlayerAssignment player );
+
+        //IEnumerable<StatsIndexListModel> GetAllPlayerStats();
+        //IEnumerable<StatsIndexListModel> GetAllPlayerStats( int count );
 
 
 
-	}
+    }
 }

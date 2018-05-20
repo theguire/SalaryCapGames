@@ -1,0 +1,21 @@
+﻿@model IEnumerable<SalaryCapData.Data.Models.PitcherStats>
+@{
+    ViewData[ "Title" ] = "ViewPitchers";
+}
+
+
+<br />
+<br />
+<h2>View Pitchers</h2>
+<hr />
+
+<div class="container">
+    <div class="row">
+        @Html.Partial( "~/Views/Shared/Players/Pitchers/_ViewAllPitchersPartial.cshtml" )
+
+    </div>
+</div>
+@section Scripts{
+
+    <script type="text/javascript" src="~/js/myDatatable.js"></script>
+}
