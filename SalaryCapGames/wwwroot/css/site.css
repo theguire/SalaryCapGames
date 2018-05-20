@@ -89,3 +89,9 @@ html {
 .table-col-text-left {
     text-align: left;
 }
+
+.spacer2{
+    padding: 3px 0px;
+    border-top: solid 2px whitesmoke;
+    margin-top: 3px;
+}

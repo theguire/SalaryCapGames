@@ -27,7 +27,27 @@ namespace SalaryCapGames.Controllers
         //GET
         public IActionResult DashboardFranchiseIndex()
         {
-            string userId = _userManager.GetUserId( User );  
+            string userId = _userManager.GetUserId( User );
+            var franchises = from f in _franchises.GetAllByOwnerId( userId ) select f;
+            var franchiseModelList = franchises.Select( f => new FranchiseIndexListingModel
+            {
+                Nickname = f.AbbreviatedName,
+                Points = f.Points,
+                Value = f.Value,
+                NumberOfTrades = f.NumberOfTrades,
+                League = f.League,
+
+
+            } ).ToList();
+            //var model = new FranchiseIndexModel()
+            //{ Franchises = franchiseModelList };
+
+            return View( franchiseModelList );
+        }
+
+        public IActionResult Index()
+        {
+            string userId = _userManager.GetUserId( User );
             var franchises = from f in _franchises.GetAllByOwnerId( userId ) select f;
             var franchiseModelList = franchises.Select( f => new FranchiseIndexListingModel
             {

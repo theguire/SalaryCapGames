@@ -13,6 +13,16 @@ $(document).ready(function () {
         }
     });
 
+    $('#franchiseTable').DataTable({
+        select: {
+            style: 'single'
+        },
+        "ordering": false,
+        "paging": false,
+        "info": false,
+        "searching":false
+    });
+
     var hitterTable = $('#hittersTable').DataTable({
         select: {
             style: 'single'
@@ -40,11 +50,12 @@ $(document).ready(function () {
 
     });
     $('#hittersTable tbody').on('click', 'tr', function () {
+        var table = $('#hittersTable').DataTable();
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         }
         else {
-            table.$('tr.selected').removeClass('selected');
+            //table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             $('#addPlayer').click(function () {
 
@@ -54,6 +65,40 @@ $(document).ready(function () {
         }
     });
 
+    $('#franchiseTable tbody').on('click', 'tr', function () {
+        var table = $('#franchiseTable').DataTable();
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+            var franchiseId = table.row('.selected').data()[0];
+            $('.js-reload-details')( function (evt) {
+                evt.preventDefault();
+                evt.stopPropagation();
+
+                var $detailDiv = $('#detailsDiv'),
+                    url = $(this).data('url');
+
+                $.get(url, function (data) {
+                    $detailsDiv.replaceWith(data);
+                });
+            });
+        }
+    });
+
+    //$('.js-reload-details').on('click', function (evt) {
+    //    evt.preventDefault();
+    //    evt.stopPropagation();
+
+    //    var $detailDiv = $('#detailsDiv'),
+    //        url = $(this).data('url');
+
+    //    $.get(url, function (data) {
+    //        $detailsDiv.replaceWith(data);
+    //    });
+    //});
     // Add event listener for opening and closing details
     $('#pitchersTable tbody').on('click', 'td.details-control', function () {
         var table = $('#pitchersTable').DataTable();

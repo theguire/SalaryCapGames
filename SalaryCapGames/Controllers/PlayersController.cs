@@ -53,6 +53,12 @@ namespace SalaryCapGame.Controllers
             return View( players );
         }
 
+        public IActionResult ViewMyHitters( int franchiseId )
+        {
+            var players = _players.GetHitterStats( franchiseId ).ToList();
+            return View( players );
+        }
+
         //        private StatsIndexListModel GetAllStats()
         //        {
 

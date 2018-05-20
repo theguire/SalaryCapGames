@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SalaryCapGame.Views.WebViewModels.FranchiseIndexListingModel>
+@{
+    ViewData[ "Title" ] = "DashboardIndex";
+}
+
+
+<br />
+<br />
+<h2>My Dashboard</h2>
+<hr />
+
+<div class="container">
+    <div class="row ">
+        <div class="col-6 form-border">
+            @Html.Partial( "~/Views/Shared/Dashboard/_DashboardPartial.cshtml" )
+            <div class="spacer2">
+                @Html.Partial( "~/Views/Shared/Dashboard/_DashboardMyTeamTabsPartial.cshtml" )
+            </div>
+        </div>
+        <div class="col-6">
+            @Html.Partial( "~/Views/Shared/Dashboard/_DashboardTradeTabsPartial.cshtml" )
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts{
+
+    <script type="text/javascript" src="~/js/myDatatable.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="~/js/dashboard.index.js"></script>
+}
