@@ -7,7 +7,6 @@ using Microsoft.Extensions.Logging;
 using SalaryCapData.Data.Models;
 
 using SalaryCapGames.Extensions;
-using SalaryCapGames.Models.ManageViewModels;
 using SalaryCapGames.Views.WebViewModels.ManageViewModels;
 
 using SalaryCapServices.EmailServices;

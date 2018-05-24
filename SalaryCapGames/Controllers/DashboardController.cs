@@ -5,7 +5,10 @@ using SalaryCapData.Data.Models;
 using SalaryCapData.Interfaces;
 
 using SalaryCapGame.Views.WebViewModels;
-using SalaryCapGames.Views.WebViewModels.Dashboard;
+using SalaryCapGame.Views.WebViewModels.Franchise;
+
+using SalaryCapGames.Views.WebViewModels.DashboardViewModels;
+
 using System.Linq;
 
 namespace SalaryCapGames.Controllers
@@ -73,16 +76,30 @@ namespace SalaryCapGames.Controllers
             if ( id != 0 )
             {
                 ViewBag.FranchiseId = id;
-                franchiseModel.PlayerAssignments = _players.GetFranchisePlayers( id ).ToList();
+                var playerAssignments = from pa in _players.GetFranchisePlayers( id ) select pa;
+                var playersList = playerAssignments.Select( pa => new Player
+                {
+                    Age = pa.Player.Age,
+                    FirstName = pa.Player.FirstName,
+                    LastName = pa.Player.LastName,
+                    HitterStats = pa.Player.HitterStats,
+                    PitcherStats = pa.Player.PitcherStats,
+                    Position = pa.PlayerPosition,
+                    Team = pa.Player.Team,
+
+                } ).ToList();
+                franchiseModel.FranchisePlayers = playersList.ToList();
             }
             else
-                franchiseModel.PlayerAssignments = null;
+                franchiseModel.FranchisePlayers = null;
+
+
 
             var players = _players.GetAll();
-            var model = new DashboardViewModel()
+            var model = new DashboardIndexViewModel
             {
                 FranchiseModel = franchiseModel,
-                AllPlayerStats
+                Players = players.ToList()
             };
             return View( model );
         }

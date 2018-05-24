@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace SalaryCapGames.Models.ManageViewModels
+﻿namespace SalaryCapGames.Views.WebViewModels.ManageViewModels
 {
     public class TwoFactorAuthenticationViewModel
     {

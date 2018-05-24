@@ -80,8 +80,8 @@
 
     <div class="form-group">
         @*<a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.Id">Edit</a>*@
-        @Html.Partial( "_EditButtonPartial", @Model.Id )
-        @Html.Partial( "_BackToListButtonPartial" )
+        @Html.Partial( "~/Views/Shared/ButtonPartials/_EditButtonPartial.cshtml", @Model.Id );
+        @Html.Partial( "~/Views/Shared/ButtonPartials/_BackToListButtonPartial.cshtml" );
         @*<a asp-action="Index" class="btn btn-success">Back to List</a>*@
     </div>
 </div>

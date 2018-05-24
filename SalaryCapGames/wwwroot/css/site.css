@@ -71,16 +71,16 @@ html {
     color: #555;
 }
 
-.table-data-number{
-    text-align:right;
+.table-data-number {
+    text-align: right;
 }
 
-.table-data-trades{
-    text-align:center;
+.table-data-trades {
+    text-align: center;
 }
 
-.table-col-text-center{
-     text-align:center;
+.table-col-text-center {
+    text-align: center;
 }
 
 .table-col-text-right {
@@ -91,7 +91,7 @@ html {
     text-align: left;
 }
 
-.spacer2{
+.spacer2 {
     padding: 3px 0px;
     border-top: solid 2px whitesmoke;
     margin-top: 3px;
@@ -119,7 +119,26 @@ html {
     display: none;
 }
 
-.selected-row
-{
+.selected-row {
     background-color: #a4d4e6;
+}
+
+/* tab color */
+.nav-tabs > li > a {
+    background-color: #333333;
+    border-color: #777777;
+    color: #fff;
+}
+
+/* active tab color */
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff;
+    background-color: #666;
+    border: 1px solid #888888;
+}
+
+/* hover tab color */
+.nav-tabs > li > a:hover {
+    border-color: #000000;
+    background-color: #111111;
 }

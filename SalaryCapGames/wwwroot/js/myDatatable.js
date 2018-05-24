@@ -20,31 +20,34 @@ $(document).ready(function () {
         "ordering": false,
         "paging": false,
         "info": false,
-        "searching":false
+        "searching": false
     });
 
     var hitterTable = $('#hittersTable').DataTable({
         select: {
             style: 'single'
         },
+        "order": [[16, "desc"]],
         initComplete: function () {
-            this.api().columns().every(function () {
-                var column = this;
-                var select = $('<select><option value=""></option></select>')
-                    .appendTo($(column.footer()).empty())
-                    .on('change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
+            this.api().columns().every(function (currentValue) {
+               
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
 
-                        column
-                            .search(val ? '^' + val + '$' : '', true, false)
-                            .draw();
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>');
                     });
-
-                column.data().unique().sort().each(function (d, j) {
-                    select.append('<option value="' + d + '">' + d + '</option>');
-                });
+               
             });
         }
 
@@ -57,6 +60,7 @@ $(document).ready(function () {
         else {
             //table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
+            alert(table.row('.selected').data());
             $('#addPlayer').click(function () {
 
 
@@ -67,17 +71,18 @@ $(document).ready(function () {
 
     $('#franchiseTable tbody').on('click', 'tr', function () {
         var table = $('#franchiseTable').DataTable();
+        var $row = $(this).closest('tr');
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         }
         else {
             table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
-            var franchiseId = table.row('.selected').data()[0];
-            alert(franchiseId);
-            $.get("@Url.Action( 'Index', 'Dashboard' )", { Id: $(franchiseId) }, function () {
-                alert(data)
-            });
+            var franchiseId = table.row('.selected').data()[1];
+            alert("Franchise Id = " + franchiseId);
+            //$.get("@Url.Action( 'Index', 'Dashboard' )", { Id: $(franchiseId) }, function () {
+            //    alert(data)
+            //});
 
 
 
@@ -103,29 +108,14 @@ $(document).ready(function () {
         }
     });
 
-    //$('.js-reload-details').on('click', function (evt) {
-    //    evt.preventDefault();
-    //    evt.stopPropagation();
-
-    //    var $detailDiv = $('#detailsDiv'),
-    //        url = $(this).data('url');
-
-    //    $.get(url, function (data) {
-    //        $detailsDiv.replaceWith(data);
-    //    });
-    //});
-    // Add event listener for opening and closing details
-    $('#pitchersTable tbody').on('click', 'td.details-control', function () {
+    $('#pitchersTable tbody').on('click', 'tr', function () {
         var table = $('#pitchersTable').DataTable();
         var tr = $(this).closest('tr');
         var tdi = tr.find("i.fa");
         var row = table.row(tr);
-        var cell = table.row().data()[1];
-        
-
+        var cell = table.row().data();
         alert(cell);
-        
-        
+
 
         if (tr.hasClass('dropPlayer')) {
             //tdi.first().hasClass('addPlayer'))
@@ -150,6 +140,20 @@ $(document).ready(function () {
 
 
     });
+
+    //$('.js-reload-details').on('click', function (evt) {
+    //    evt.preventDefault();
+    //    evt.stopPropagation();
+
+    //    var $detailDiv = $('#detailsDiv'),
+    //        url = $(this).data('url');
+
+    //    $.get(url, function (data) {
+    //        $detailsDiv.replaceWith(data);
+    //    });
+    //});
+    // Add event listener for opening and closing details
+
 });
 
     //$("input[name='franchiseId']:radio").change(function () {

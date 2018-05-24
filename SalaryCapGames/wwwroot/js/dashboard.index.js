@@ -23,3 +23,4 @@ function generateChart() {
     var chart = new google.visualization.PieChart($('#piechart')[0]);
     chart.draw(data, options);
 } 
+

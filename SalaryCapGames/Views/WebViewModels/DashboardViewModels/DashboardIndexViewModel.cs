@@ -1,6 +1,10 @@
-﻿using SalaryCapGame.Views.WebViewModels;
+﻿using SalaryCapData.Data.Models;
 
-namespace SalaryCapGames.Views.WebViewModels.Dashboard
+using SalaryCapGame.Views.WebViewModels.Franchise;
+
+using System.Collections.Generic;
+
+namespace SalaryCapGames.Views.WebViewModels.DashboardViewModels
 {
     //public class DashboardViewModel
     //{
@@ -9,9 +13,9 @@ namespace SalaryCapGames.Views.WebViewModels.Dashboard
     //    IEnumerable<HitterStatsViewModel> HittingFreeAgents { get; set; }
     //    IEnumerable<HitterStatsViewModel> PitcherFreeAgents { get; set; }
     //}
-    public class DashboardViewModel
+    public class DashboardIndexViewModel
     {
         public FranchiseIndexModel FranchiseModel { get; set; }
-        public StatsIndexListModel AllPlayerStats { get; set; }
+        public IEnumerable<Player> Players { get; set; }
     }
 }

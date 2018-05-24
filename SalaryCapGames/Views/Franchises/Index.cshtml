@@ -11,7 +11,7 @@
 <hr />
 
 <p>
-    @Html.Partial( "_CreateButtonPartial" )
+    @Html.Partial( "~/Views/Shared/ButtonPartials/_CreateButtonPartial.cshtml" )
 </p>
 <div class="form-border">
     <table class="table">
@@ -69,8 +69,8 @@
                     </td>
                     <td style="width:150px;">
                         <div class="btn-group" role="group">
-                            @Html.Partial( "_EditButtonPartial", item.Id )
-                            @Html.Partial( "_DetailsButtonPartial", item.Id )
+                            @Html.Partial( "~/Views/Shared/ButtonPartials/_EditButtonPartial.cshtml", item.Id )
+                            @Html.Partial( "~/Views/Shared/ButtonPartials/_DetailsButtonPartial.cshtml", item.Id )
                         </div>
                     </td>
                 </tr>

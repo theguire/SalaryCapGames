@@ -88,7 +88,7 @@
 
 
     <div class="form-group">
-        @Html.Partial( "_EditButtonPartial", @Model.Id )
-        @Html.Partial( "_BackToListButtonPartial" )
+        @Html.Partial( "~/Views/Shared/ButtonPartials/_EditButtonPartial.cshtml", @Model.Id )
+        @Html.Partial( "~/Views/Shared/ButtonPartials/_BackToListButtonPartial.cshtml" )
     </div>
 </div>

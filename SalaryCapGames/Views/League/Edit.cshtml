@@ -47,8 +47,8 @@
         <div class="form-group">
             @*<input type="submit" value="Save" class="btn btn-primary" />*@
             @*<a asp-action="Index" class="btn btn-success">Back to List</a>*@
-            @Html.Partial( "_SaveButtonPartial" )
-            @Html.Partial( "_BackToListButtonPartial" )
+            @Html.Partial( "~/Views/Shared/ButtonPartials/_SaveButtonPartial.cshtml" )
+            @Html.Partial( "~/Views/Shared/ButtonPartials/_BackToListButtonPartial.cshtml" )
         </div>
     </div>
 </form>

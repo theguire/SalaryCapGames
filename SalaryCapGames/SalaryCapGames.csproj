@@ -29,9 +29,4 @@
     <ProjectReference Include="..\SalaryCapServices\SalaryCapServices.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\MyTeam\" />
-    <Folder Include="Views\Shared\ButtonPartials\" />
-  </ItemGroup>
-
 </Project>

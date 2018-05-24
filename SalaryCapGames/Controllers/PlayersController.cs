@@ -40,13 +40,13 @@ namespace SalaryCapGame.Controllers
         //    return View( model );
         //}
 
-        public IActionResult ViewPitchers( int franchiseId )
+        public IActionResult ViewPitchers()
         {
             var players = _players.GetPitcherStats().ToList();
             return View( players );
         }
 
-        public IActionResult ViewHitters( string position, int franchiseId )
+        public IActionResult ViewHitters()
         {
 
             var players = _players.GetHitterStats().ToList();
@@ -111,22 +111,37 @@ namespace SalaryCapGame.Controllers
         //    return (statsModel);
         //}
 
+        public IActionResult AddHitter( int franchiseId, int playerId )
+        {
+            AddPlayer( franchiseId, playerId );
+            return RedirectToAction( "ViewHitters", "Players" );
+        }
 
-        public IActionResult AddPlayer( int franchiseId, int playerId )
+        public IActionResult AddPitcher( int franchiseId, int playerId )
+        {
+            AddPlayer( franchiseId, playerId );
+            return RedirectToAction( "ViewPitchers", "Players" );
+        }
+
+        public void AddPlayer( int franchiseId, int playerId )
         {
 
             var player = _players.Get( playerId );
-            PlayerAssignment playerAssign = new PlayerAssignment
+            if ( player != null )
             {
-                FranchiseId = franchiseId,
-                PlayerId = playerId,
 
-                DateDrafted = DateTime.Now,
-                PlayerPosition = player.Position,
-            };
+                PlayerAssignment playerAssign = new PlayerAssignment
+                {
+                    FranchiseId = franchiseId,
+                    PlayerId = playerId,
 
-            _players.DraftPlayer( playerAssign );
-            return RedirectToAction( "ViewPitchers", "Players" );
+                    DateDrafted = DateTime.Now,
+                    PlayerPosition = player.Position,
+                };
+
+                _players.DraftPlayer( playerAssign );
+            }
+
 
             // return RedirectToAction( "Details", "Owners", new { id = ownerId } );
         }
