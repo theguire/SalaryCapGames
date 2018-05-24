@@ -33,6 +33,8 @@ namespace SalaryCapData.Interfaces
 
         void DraftPlayer( PlayerAssignment player );
 
+        IEnumerable<PlayerAssignment> GetFranchisePlayers( int franchiseId );
+
         //IEnumerable<StatsIndexListModel> GetAllPlayerStats();
         //IEnumerable<StatsIndexListModel> GetAllPlayerStats( int count );
 

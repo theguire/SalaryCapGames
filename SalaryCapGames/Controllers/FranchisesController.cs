@@ -45,12 +45,12 @@ namespace SalaryCapGame.Controllers
             return View( franchises.ToList() );
         }
 
-        public IEnumerable<PlayerAssignment> Players( int id )
-        {
-            IEnumerable<PlayerAssignment> players = _franchises.Get( id ).Players;
+        //public IEnumerable<PlayerAssignment> Players( int id )
+        //{
+        //    IEnumerable<PlayerAssignment> players = _franchises.Get( id ).Players;
 
-            return players;
-        }
+        //    return players;
+        //}
 
         // GET: Franchises/Details/5
         public IActionResult Details( int id )
@@ -103,8 +103,8 @@ namespace SalaryCapGame.Controllers
                 //franchise.LeagueId = selectedLeagueId;
                 franchise.League = _leagues.Get( franchise.LeagueId );
                 Random rnd = new Random();
-                franchise.NumberOfTrades = rnd.Next( 0, 4 );
-                franchise.Value = (decimal)rnd.Next( 25, 50 );
+                franchise.NumberOfTrades = rnd.Next( 0, 8 );
+                franchise.Value = (decimal)rnd.Next( 45, 75 );
                 franchise.Points = rnd.Next( 0, 20000 );
 
                 _franchises.Add( franchise );
@@ -220,7 +220,7 @@ namespace SalaryCapGame.Controllers
 
         //    var player = _pl
         //    _franchises.AddPlayer( franchiseId, playerId );
-        //    return RedirectToAction( "ViewPitchers", "Players");
+        //    return RedirectToAction( "ViewPitchers", "Players" );
 
         //    // return RedirectToAction( "Details", "Owners", new { id = ownerId } );
         //}

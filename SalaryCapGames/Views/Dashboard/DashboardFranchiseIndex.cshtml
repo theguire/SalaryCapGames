@@ -1,48 +1,48 @@
-﻿@model IEnumerable<SalaryCapGame.Views.WebViewModels.FranchiseIndexListingModel>
-@{
-    ViewData[ "Title" ] = "DashboardFranchiseIndex";
-}
+﻿@*@model IEnumerable<SalaryCapGame.Views.WebViewModels.FranchiseIndexListingModel>
+    @{
+        ViewData[ "Title" ] = "DashboardFranchiseIndex";
+    }
 
-<br />
-<h2>My Dashboard</h2>
-<hr />
+    <br />
+    <h2>My Dashboard</h2>
+    <hr />
 
 
-<div class="container row">
-    <div class="form-border col-5">
-        <table id="franchiseTable" class="display" style="width:100%">
-            <thead>
-                <tr>
-                    <th><label>Franchise</label></th>
-                    <th><label>Points</label></th>
-                    <th><label>Value</label></th>
-                    <th><label>Trades</label></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ( var item in Model )
-                {
+    <div class="container row">
+        <div class="form-border col-5">
+            <table id="franchiseTable" class="display" style="width:100%">
+                <thead>
                     <tr>
-                        <td>@Html.DisplayFor( modelItem => item.Nickname )</td>
-                        <td class="table-data-number">@Html.DisplayFor( modelItem => item.Points )</td>
-                        <td class="table-data-number">@Html.DisplayFor( modelItem => item.Value )</td>
-                        <td class="table-data-trades">@Html.DisplayFor( modelItem => item.NumberOfTrades )</td>
-
+                        <th><label>Franchise</label></th>
+                        <th><label>Points</label></th>
+                        <th><label>Value</label></th>
+                        <th><label>Trades</label></th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ( var item in Model )
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor( modelItem => item.Nickname )</td>
+                            <td class="table-data-number">@Html.DisplayFor( modelItem => item.Points )</td>
+                            <td class="table-data-number">@Html.DisplayFor( modelItem => item.Value )</td>
+                            <td class="table-data-trades">@Html.DisplayFor( modelItem => item.NumberOfTrades )</td>
 
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-7">
+            @Html.Partial( "_DashboardTabs" )
+        </div>
     </div>
-    <div class="col-7">
-        @Html.Partial( "_DashboardTabs" )
-    </div>
-</div>
 
 
 
-@section Scripts{
+    @section Scripts{
 
-    <script type="text/javascript" src="/js/myDatatable.js"></script>
-}
+        <script type="text/javascript" src="/js/myDatatable.js"></script>
+    }*@
 

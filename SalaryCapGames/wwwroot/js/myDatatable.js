@@ -74,17 +74,32 @@ $(document).ready(function () {
             table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var franchiseId = table.row('.selected').data()[0];
-            $('.js-reload-details')( function (evt) {
-                evt.preventDefault();
-                evt.stopPropagation();
-
-                var $detailDiv = $('#detailsDiv'),
-                    url = $(this).data('url');
-
-                $.get(url, function (data) {
-                    $detailsDiv.replaceWith(data);
-                });
+            alert(franchiseId);
+            $.get("@Url.Action( 'Index', 'Dashboard' )", { Id: $(franchiseId) }, function () {
+                alert(data)
             });
+
+
+
+            //$.ajax({
+            //    type: 'GET',
+            //    url: '@Url.Action( "Index" )',
+            //    data: { franchiseId: $(franchiseId) },
+            //    success: function ()
+
+            //});
+            //$('#myTeamPartialContainer').load( '@Url.Action("Index", new {franchiseId = "f)
+            //$('.js-reload-details')( function (evt) {
+            //    evt.preventDefault();
+            //    evt.stopPropagation();
+
+            //    var $detailDiv = $('#detailsDiv'),
+            //        url = $(this).data('url');
+
+            //    $.get(url, function (data) {
+            //        $detailsDiv.replaceWith(data);
+            //    });
+            //});
         }
     });
 

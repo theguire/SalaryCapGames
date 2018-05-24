@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 using SalaryCapData.Data.Models;
@@ -26,6 +25,7 @@ namespace SalaryCapData.Data
         public DbSet<PitcherStats> PitcherStats { get; set; }
         public DbSet<HitterStats> HitterStats { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<FranchisePlayers> FranchisePlayers { get; set; }
 
         protected override void OnModelCreating( ModelBuilder builder )
         {

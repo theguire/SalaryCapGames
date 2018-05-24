@@ -1,7 +1,6 @@
 ﻿
 using SalaryCapData.Data.Models;
 
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SalaryCapGame.Views.WebViewModels
@@ -26,7 +25,7 @@ namespace SalaryCapGame.Views.WebViewModels
         [Display( Name = "Trades" )]
         public int NumberOfTrades { get; set; }
 
-        public IEnumerable<Player> Players { get; set; }
+        
 
     }
 }

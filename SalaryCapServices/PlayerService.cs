@@ -161,5 +161,18 @@ namespace SalaryCapServices
                 ;
             }
         }
+
+        public IEnumerable<PlayerAssignment> GetFranchisePlayers( int franchiseId )
+        {
+            return _context.PlayerAssignments
+                .Include( pa => pa.Player.HitterStats )
+                .Include( pa => pa.Player.PitcherStats )
+                .Where( p => p.FranchiseId == franchiseId );
+        }
+
+        //public IEnumerable<PlayerAssignment> GetFranchisePlayers( int franchiseId )
+        //{
+        //    return _context.FranchisePlayers.Where( f => f.FranchiseId == franchiseId );
+        //}
     }
 }

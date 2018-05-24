@@ -45,7 +45,7 @@ namespace SalaryCapData.Data.Models
         public int NumberOfTrades { get; set; }
 
 
-        public virtual IEnumerable<PlayerAssignment> Players { get; set; }
+       
 
     }
 }

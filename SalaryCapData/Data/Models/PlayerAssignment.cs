@@ -7,9 +7,10 @@ namespace SalaryCapData.Data.Models
     {
         public int Id { get; set; }
         [Required]
+
         public int FranchiseId { get; set; }
-        [Required]
         public int PlayerId { get; set; }
+        public Player Player { get; set; }
         //       [Required]
         //public PlayerPosition PlayerPosition { get; set; }
         public string PlayerPosition { get; set; }

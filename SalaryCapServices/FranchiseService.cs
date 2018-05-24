@@ -108,10 +108,10 @@ namespace SalaryCapServices
                         .Where( f => f.OwnerId.Equals( ownerId )));
         }
 
-        public IEnumerable<PlayerAssignment> GetPlayers( int id )
-        {
-            return (Get( id ).Players);
-        }
+        //public FranchisePlayers GetPlayers( int id )
+        //{
+        //    return (Get( id ).Players);
+        //}
 
         //public void AddPlayer( int franchiseId, int playerId )
         //{
@@ -138,10 +138,6 @@ namespace SalaryCapServices
             throw new System.NotImplementedException();
         }
 
-        IEnumerable<Player> IFranchise.GetPlayers( int id )
-        {
-            throw new System.NotImplementedException();
-        }
 
 
     }

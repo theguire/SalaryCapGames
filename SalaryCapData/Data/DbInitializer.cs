@@ -1,7 +1,8 @@
 ﻿//using Microsoft.AspNetCore.Identity;
+//using SalaryCapGame.
 //using SalaryCapData.Data;
 //using SalaryCapData.Data.Models;
-//using System;
+
 //using System.Linq;
 
 //namespace SalaryCapData
@@ -11,33 +12,38 @@
 //        public static void Initialize( ApplicationDbContext context, UserManager<ApplicationUser> userManager )
 //        {
 
-//            if ( context.Owners.Any() )
-//            {
-//                return;
-//            }
+//            //if ( context.Owners.Any() )
+//            //{
+//            //    return;
+//            //}
 //            System.Diagnostics.Debug.WriteLine( "Seeding the data models.  Please wait..." );
 
 //            System.Diagnostics.Debug.WriteLine( "1 of 3" );
-//            var owners = OwnersSeed(  context );
+//            //var owners = OwnersSeed( context );
+//            var owners = RegisterSomeUsers( context );
 //            System.Diagnostics.Debug.Write( "\r2 of 3" );
-//           var leagues = LeagueSeed( context, owners );
+//            var leagues = LeagueSeed( context, owners );
 //            System.Diagnostics.Debug.Write( "\r3 of 3" );
-//           var franchises = FranchiseSeed( context, owners, leagues );
+//            var franchises = FranchiseSeed( context, owners, leagues );
 //            System.Diagnostics.Debug.Write( "\rDone...." );
 
 //        }
 
 
 
+//        private static RegisterViewModel[] RegisterSomeUsers( ApplicationDbContext context, UserManager<ApplicationUser> userManager )
+//        {
+
+//        }
 //        private static Owner[] OwnersSeed( ApplicationDbContext context, UserManager<ApplicationUser> userManager )
 //        {
 //            Owner[] owners = new Owner[ 6 ];
 
-//            for ( int i = 0; i<owners.Length; i++  )
+//            for ( int i = 0; i < owners.Length; i++ )
 //            {
 //                var user = new ApplicationUser
 //                {
-//                    UserName = "dumbo" + i +"@gmail.com",
+//                    UserName = "dumbo" + i + "@gmail.com",
 //                    Email = "dumbo" + i + "@gmail.com",
 //                };
 //                var result = userManager.CreateAsync( user, "N0str0m0!" );
@@ -51,7 +57,7 @@
 //                        ImageUrl = ""
 //                    } );
 //            }
-           
+
 //            foreach ( Owner o in owners )
 //            {
 //                context.Owners.Add( o );
@@ -64,7 +70,7 @@
 //        private static League[] LeagueSeed( ApplicationDbContext context, Owner[] owners, UserManager<ApplicationUser> userManager )
 //        {
 //            League[] leagues = new League[ 6 ];
-//            for ( int i = 0; i<leagues.Length; i++ )
+//            for ( int i = 0; i < leagues.Length; i++ )
 //            {
 //                var email = await userManager.GetEmailAsync( owners[ i ].AppUserId ).;
 //                new League

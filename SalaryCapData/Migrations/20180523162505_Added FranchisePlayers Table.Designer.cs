@@ -11,9 +11,10 @@ using System;
 namespace SalaryCapData.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180523162505_Added FranchisePlayers Table")]
+    partial class AddedFranchisePlayersTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,70 +221,6 @@ namespace SalaryCapData.Migrations
                     b.ToTable("Franchises");
                 });
 
-            modelBuilder.Entity("SalaryCapData.Data.Models.FranchisePlayers", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("CatcherId");
-
-                    b.Property<int?>("DesignatedHitterId");
-
-                    b.Property<int?>("FirstBaseId");
-
-                    b.Property<int>("FranchiseId");
-
-                    b.Property<int?>("Outfield1Id");
-
-                    b.Property<int?>("Outfield2Id");
-
-                    b.Property<int?>("Outfield3Id");
-
-                    b.Property<int?>("Pitcher1Id");
-
-                    b.Property<int?>("Pitcher2Id");
-
-                    b.Property<int?>("Pitcher3Id");
-
-                    b.Property<int?>("Pitcher4Id");
-
-                    b.Property<int?>("SecondBaseId");
-
-                    b.Property<int?>("ShortStopId");
-
-                    b.Property<int?>("ThirdBaseId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CatcherId");
-
-                    b.HasIndex("DesignatedHitterId");
-
-                    b.HasIndex("FirstBaseId");
-
-                    b.HasIndex("Outfield1Id");
-
-                    b.HasIndex("Outfield2Id");
-
-                    b.HasIndex("Outfield3Id");
-
-                    b.HasIndex("Pitcher1Id");
-
-                    b.HasIndex("Pitcher2Id");
-
-                    b.HasIndex("Pitcher3Id");
-
-                    b.HasIndex("Pitcher4Id");
-
-                    b.HasIndex("SecondBaseId");
-
-                    b.HasIndex("ShortStopId");
-
-                    b.HasIndex("ThirdBaseId");
-
-                    b.ToTable("FranchisePlayers");
-                });
-
             modelBuilder.Entity("SalaryCapData.Data.Models.HitterStats", b =>
                 {
                     b.Property<int>("Id")
@@ -445,13 +382,15 @@ namespace SalaryCapData.Migrations
 
                     b.Property<DateTime>("DateDropped");
 
-                    b.Property<int>("FranchiseId");
+                    b.Property<int?>("FranchiseId");
 
                     b.Property<int>("PlayerId");
 
                     b.Property<string>("PlayerPosition");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FranchiseId");
 
                     b.HasIndex("PlayerId");
 
@@ -590,61 +529,6 @@ namespace SalaryCapData.Migrations
                         .HasForeignKey("OwnerId");
                 });
 
-            modelBuilder.Entity("SalaryCapData.Data.Models.FranchisePlayers", b =>
-                {
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Catcher")
-                        .WithMany()
-                        .HasForeignKey("CatcherId");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "DesignatedHitter")
-                        .WithMany()
-                        .HasForeignKey("DesignatedHitterId");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "FirstBase")
-                        .WithMany()
-                        .HasForeignKey("FirstBaseId");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Outfield1")
-                        .WithMany()
-                        .HasForeignKey("Outfield1Id");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Outfield2")
-                        .WithMany()
-                        .HasForeignKey("Outfield2Id");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Outfield3")
-                        .WithMany()
-                        .HasForeignKey("Outfield3Id");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Pitcher1")
-                        .WithMany()
-                        .HasForeignKey("Pitcher1Id");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Pitcher2")
-                        .WithMany()
-                        .HasForeignKey("Pitcher2Id");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Pitcher3")
-                        .WithMany()
-                        .HasForeignKey("Pitcher3Id");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "Pitcher4")
-                        .WithMany()
-                        .HasForeignKey("Pitcher4Id");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "SecondBase")
-                        .WithMany()
-                        .HasForeignKey("SecondBaseId");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "ShortStop")
-                        .WithMany()
-                        .HasForeignKey("ShortStopId");
-
-                    b.HasOne("SalaryCapData.Data.Models.PlayerAssignment", "ThirdBase")
-                        .WithMany()
-                        .HasForeignKey("ThirdBaseId");
-                });
-
             modelBuilder.Entity("SalaryCapData.Data.Models.HitterStats", b =>
                 {
                     b.HasOne("SalaryCapData.Data.Models.Player", "Player")
@@ -679,6 +563,10 @@ namespace SalaryCapData.Migrations
 
             modelBuilder.Entity("SalaryCapData.Data.Models.PlayerAssignment", b =>
                 {
+                    b.HasOne("SalaryCapData.Data.Models.Franchise")
+                        .WithMany("Players")
+                        .HasForeignKey("FranchiseId");
+
                     b.HasOne("SalaryCapData.Data.Models.Player", "Player")
                         .WithMany()
                         .HasForeignKey("PlayerId")

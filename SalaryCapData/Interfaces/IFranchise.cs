@@ -23,7 +23,7 @@ namespace SalaryCapData.Interfaces
         decimal FranchiseValue( int id );
         int NumberOfTrades( int id );
 
-        IEnumerable<Player> GetPlayers( int id );
+        //FranchisePlayers GetPlayers( int id );
         //void AddPlayer( int franchiseId, int playerId );
         void Droplayer( int franchiseId, int playerId );
 

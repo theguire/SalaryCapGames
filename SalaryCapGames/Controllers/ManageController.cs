@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+
 using SalaryCapData.Data.Models;
 
 using SalaryCapGames.Extensions;
@@ -10,6 +11,7 @@ using SalaryCapGames.Models.ManageViewModels;
 using SalaryCapGames.Views.WebViewModels.ManageViewModels;
 
 using SalaryCapServices.EmailServices;
+
 using System;
 using System.Linq;
 using System.Text;
@@ -114,7 +116,7 @@ namespace SalaryCapGames.Controllers
         {
             if ( !ModelState.IsValid )
             {
-                return View( model );
+                return RedirectToAction( nameof( Index ), model );
             }
 
             var user = await _userManager.GetUserAsync( User );

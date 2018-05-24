@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SalaryCapGame.Views.WebViewModels.FranchiseIndexListingModel>
+﻿@model SalaryCapGame.Views.WebViewModels.FranchiseIndexModel
 @{
     ViewData[ "Title" ] = "DashboardIndex";
 }
@@ -13,9 +13,7 @@
     <div class="row ">
         <div class="col-6 form-border">
             @Html.Partial( "~/Views/Shared/Dashboard/_DashboardPartial.cshtml" )
-            <div class="spacer2">
-                @Html.Partial( "~/Views/Shared/Dashboard/_DashboardMyTeamTabsPartial.cshtml" )
-            </div>
+
         </div>
         <div class="col-6">
             @Html.Partial( "~/Views/Shared/Dashboard/_DashboardTradeTabsPartial.cshtml" )

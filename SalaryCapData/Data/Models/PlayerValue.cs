@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SalaryCapData.Data.Models
+﻿namespace SalaryCapData.Data.Models
 {
     public class PlayerValue
     {
@@ -10,5 +6,6 @@ namespace SalaryCapData.Data.Models
 
         public int PlayerId { get; set; }
         public int Date { get; set; }
+        public decimal Value { get; set; }
     }
 }
