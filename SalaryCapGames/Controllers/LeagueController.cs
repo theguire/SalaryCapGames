@@ -11,6 +11,7 @@ using SalaryCapGame.Views.WebViewModels;
 using SalaryCapGames.Utilities;
 using SalaryCapGames.Views.WebViewModels.League;
 
+using System;
 using System.Linq;
 
 namespace SalaryCapGame.Controllers
@@ -73,14 +74,15 @@ namespace SalaryCapGame.Controllers
 
             if ( ModelState.IsValid )
             {
+                Random rnd = new Random();
                 var newLeague = new League
                 {
                     Name = league.Name,
                     MaxNumberFranchises = league.MaxSize,
                     IsPrivate = league.IsPrivate,
                     CommissionerId = _userManager.GetUserId( User ),
-                    Points = 0,
-                    Value = 0
+                    Points = rnd.Next( 2000, 200000 ),
+                    Value = (decimal)rnd.Next( 85, 150 ),
                 };
                 //league.CommissionerId = _owners.GetOwnerId( Convert.ToInt32( _userManager.GetUserId( User ) ) );
 

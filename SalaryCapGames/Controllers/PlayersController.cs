@@ -123,7 +123,7 @@ namespace SalaryCapGame.Controllers
             return RedirectToAction( "ViewPitchers", "Players" );
         }
 
-        public void AddPlayer( int franchiseId, int playerId )
+        private void AddPlayer( int franchiseId, int playerId )
         {
 
             var player = _players.Get( playerId );

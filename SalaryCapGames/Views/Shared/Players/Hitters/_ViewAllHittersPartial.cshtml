@@ -31,8 +31,9 @@
 
             <tr>
                 <td class="details-control" id="addPlayer">
-                    @Html.ActionLink( "Add", "AddHitter", "Players", new { franchiseId = 1, playerId = item.PlayerId }, new { id = "myLink" } )
-                    <i class="fa fa-plus-square" style="color:green;" aria-hidden="true"></i>
+                    <a href='@Url.Action( "AddHitter", "Players", new { franchiseId = 1, playerId = item.PlayerId })'>
+                        <i class="fa fa-plus-square" style="color:green;" aria-hidden="true"></i>
+                    </a>
                 </td>
                 <td style="text-align:left">@Html.DisplayFor( i => item.Player.FirstName ) @Html.DisplayFor( i => item.Player.LastName )</td>
                 <td>@Html.DisplayFor( i => item.Player.Position )</td>

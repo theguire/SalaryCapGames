@@ -58,9 +58,10 @@ $(document).ready(function () {
             $(this).removeClass('selected');
         }
         else {
-            //table.$('tr.selected').removeClass('selected');
+            table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
-            alert(table.row('.selected').data());
+            var playerId = table.row('.selected').data()[1];
+            alert(playerId);
             $('#addPlayer').click(function () {
 
 
@@ -113,8 +114,8 @@ $(document).ready(function () {
         var tr = $(this).closest('tr');
         var tdi = tr.find("i.fa");
         var row = table.row(tr);
-        var cell = table.row().data();
-        alert(cell);
+        var playerId = table.row().data()[1];
+        alert(playerId);
 
 
         if (tr.hasClass('dropPlayer')) {

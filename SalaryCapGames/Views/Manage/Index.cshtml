@@ -1,4 +1,4 @@
-﻿@model IndexViewModel
+﻿@model SalaryCapGames.Views.WebViewModels.ManageViewModels.IndexViewModel
 @{
     ViewData[ "Title" ] = "Profile";
     ViewData.AddActivePage( ManageNavPages.Index );
@@ -15,6 +15,7 @@
 
             <div class="form-group">
                 <label asp-for="Email"></label>
+                <input asp-for="Email" hidden />
                 @if ( Model.IsEmailConfirmed )
                 {
                     <div class="input-group">
