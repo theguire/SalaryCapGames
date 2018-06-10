@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalaryCapData.ConsumeJson.Models.Game;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SalaryCapData.Data.Models
@@ -27,6 +28,34 @@ namespace SalaryCapData.Data.Models
         [DisplayFormat( DataFormatString = "{0:0.00}" )]
         public float WHIP { get; set; }
 
+
+        public int GetPitcherPoints()
+        {
+            if ( this != null )
+            {
+                int hitsPoints = this.HitsAllowed * (int)GamePoints.PitcherPointValues.Hit;
+                int runPoints = this.EarnedRunsAllowed * (int)GamePoints.PitcherPointValues.Run;
+                int WinsPoints = this.Wins * (int)GamePoints.PitcherPointValues.Win;
+                int completeGamesPoints = this.CompleteGames * (int)GamePoints.PitcherPointValues.CompleteGamne;
+                int LosesPoints = this.Loses * (int)GamePoints.PitcherPointValues.Loss;
+                int HoldsPoints = this.Holds * (int)GamePoints.PitcherPointValues.Hold;
+                int walkPoints = this.PitcherWalks * (int)GamePoints.PitcherPointValues.Walk;
+                int IPPoints = (int)this.InningsPitched * (int)GamePoints.PitcherPointValues.InningPitched;
+                int strikeoutPoints = this.Strikeouts * (int)GamePoints.PitcherPointValues.SO;
+
+                return (hitsPoints
+                        + runPoints
+                        + WinsPoints
+                        + completeGamesPoints
+                        + LosesPoints
+                        + walkPoints
+                        //+ IPPoints
+                        + strikeoutPoints);
+            }
+            else
+                return 0;
+
+        }
 
     }
 }

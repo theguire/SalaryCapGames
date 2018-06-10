@@ -1,22 +1,81 @@
-﻿//using Microsoft.AspNetCore.Identity;
-//using SalaryCapGame.
-//using SalaryCapData.Data;
-//using SalaryCapData.Data.Models;
+﻿
+using SalaryCapData.Data;
+using SalaryCapData.Data.Models;
 
-//using System.Linq;
+using System.Linq;
 
-//namespace SalaryCapData
-//{
-//    public static class DbInitializer
-//    {
-//        public static void Initialize( ApplicationDbContext context, UserManager<ApplicationUser> userManager )
-//        {
+namespace SalaryCapData
+{
+    public static class DbInitializer
+    {
+        public static void Initialize( ApplicationDbContext context )
+        {
 
-//            //if ( context.Owners.Any() )
-//            //{
-//            //    return;
-//            //}
-//            System.Diagnostics.Debug.WriteLine( "Seeding the data models.  Please wait..." );
+            if ( context.FranchiseTemplate.Any() )
+            {
+                return;
+            }
+
+            SeedFranchiseTemplate( context );
+        }
+
+        private static void SeedFranchiseTemplate( ApplicationDbContext context )
+        {
+            AddHitter( context, "C" );
+            AddHitter( context, "1B" );
+            AddHitter( context, "2B" );
+            AddHitter( context, "3B" );
+            AddHitter( context, "SS" );
+            AddHitter( context, "OF" );
+            AddHitter( context, "OF" );
+            AddHitter( context, "OF" );
+            AddHitter( context, "DH" );
+            AddPitcher( context, "P" );
+            AddPitcher( context, "P" );
+            AddPitcher( context, "P" );
+            AddPitcher( context, "P" );
+            context.SaveChanges();
+
+        }
+
+        private static void AddHitter( ApplicationDbContext context, string pos )
+        {
+            FranchiseTemplate ft = new FranchiseTemplate();
+            ft.Position = pos;
+
+
+            Player Player = new Player
+            {
+                HitterStats = new HitterStats(),
+                PitcherStats = null
+
+            };
+            ft.Player = Player;
+            context.FranchiseTemplate.Add( ft );
+
+        }
+
+        private static void AddPitcher( ApplicationDbContext context, string pos )
+        {
+            FranchiseTemplate ft = new FranchiseTemplate();
+            ft.Position = pos;
+
+
+            Player Player = new Player
+            {
+                HitterStats = null,
+                PitcherStats = new PitcherStats()
+
+            };
+            ft.Player = Player;
+            context.FranchiseTemplate.Add( ft );
+
+        }
+    }
+}
+
+
+//System.Diagnostics.Debug.WriteLine( "Seeding the data models.  Please wait..." );
 
 //            System.Diagnostics.Debug.WriteLine( "1 of 3" );
 //            //var owners = OwnersSeed( context );

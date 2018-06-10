@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SalaryCapData.Data.Models.PitcherStats>
+﻿@model SalaryCapGame.Views.WebViewModels.DashboardIndexViewModel.DashboardIndexViewModel
 @{
     ViewData[ "Title" ] = "ViewPitchers";
 }
@@ -9,9 +9,9 @@
 <h2>View Pitchers</h2>
 <hr />
 
-<div class="container">
+<div class="d-flex justify-content-start" y-0>
     <div class="row">
-        @Html.Partial( "~/Views/Shared/Players/Pitchers/_ViewAllPitchersPartial.cshtml" )
+        @Html.Partial( "~/Views/Shared/Players/Pitchers/_ViewAllPitchersPartial.cshtml", Model )
 
     </div>
 </div>

@@ -1,7 +1,6 @@
 ﻿
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SalaryCapData.Data.Models
@@ -45,7 +44,7 @@ namespace SalaryCapData.Data.Models
         public int NumberOfTrades { get; set; }
 
 
-       
+
 
     }
 }

@@ -96,7 +96,7 @@ namespace SalaryCapServices
         {
             return (_context.Players
                                        .Include( p => p.HitterStats )
-                                       .Include( p => p.PitcherStats )
+                                        .Include( p => p.PitcherStats )
                                        .Include( p => p.Team ))
                                        .OrderByDescending( s => s.InitialValue ).Take( count );
         }
@@ -165,9 +165,9 @@ namespace SalaryCapServices
         public IEnumerable<PlayerAssignment> GetFranchisePlayers( int franchiseId )
         {
             return _context.PlayerAssignments
-                .Include( pa => pa.Player.HitterStats )
-                .Include( pa => pa.Player.PitcherStats )
-                .Where( p => p.FranchiseId == franchiseId );
+                               .Include( p => p.Player.HitterStats )
+                               .Include( p => p.Player.PitcherStats )
+                                .Where( p => p.FranchiseId == franchiseId );
         }
 
         //public IEnumerable<PlayerAssignment> GetFranchisePlayers( int franchiseId )

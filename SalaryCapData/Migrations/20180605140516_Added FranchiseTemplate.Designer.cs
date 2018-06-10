@@ -11,9 +11,10 @@ using System;
 namespace SalaryCapData.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180605140516_Added FranchiseTemplate")]
+    partial class AddedFranchiseTemplate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -289,13 +290,9 @@ namespace SalaryCapData.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("PlayerId");
-
                     b.Property<string>("Position");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PlayerId");
 
                     b.ToTable("FranchiseTemplate");
                 });
@@ -661,13 +658,6 @@ namespace SalaryCapData.Migrations
                     b.HasOne("SalaryCapData.Data.Models.HitterStats", "ThirdBase")
                         .WithMany()
                         .HasForeignKey("ThirdBaseId");
-                });
-
-            modelBuilder.Entity("SalaryCapData.Data.Models.FranchiseTemplate", b =>
-                {
-                    b.HasOne("SalaryCapData.Data.Models.Player", "Player")
-                        .WithMany()
-                        .HasForeignKey("PlayerId");
                 });
 
             modelBuilder.Entity("SalaryCapData.Data.Models.HitterStats", b =>

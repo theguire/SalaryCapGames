@@ -1,28 +1,31 @@
-﻿@*@model IEnumerable<SalaryCapData.Data.Models.Player>*@
+﻿@model SalaryCapGame.Views.WebViewModels.DashboardIndexViewModel.DashboardIndexViewModel
 
 <h4 class="text-muted">Trade Players</h4>
-<hr />
-<ul class="nav nav-tabs" id="tradeTab" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" style="background-color:darkcyan; margin-right: 2px; color:wheat;" id="trade-hitters-tab" data-toggle="tab" href="#trade-hitters" role="tab" aria-controls="trade-hitters" aria-selected="true">Hitters</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="trade-pitchers-tab" style="background-color:darkolivegreen; color:wheat;" data-toggle="tab" href="#trade-pitchers" role="tab" aria-controls="trade-pitchers" aria-selected="false">Pitchers</a>
-    </li>
+<div class="container">
+    <ul class="nav nav-tabs" id="tradeTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" style="background-color:darkcyan; color:wheat;" id="trade-hitters-tab" data-toggle="tab" href="#trade-hitters" role="tab" aria-controls="trade-hitters" aria-selected="true">Hitters</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="trade-pitchers-tab" style="background-color:darkolivegreen; color:wheat;" data-toggle="tab" href="#trade-pitchers" role="tab" aria-controls="trade-pitchers" aria-selected="false">Pitchers</a>
+        </li>
 
-</ul>
-<div class="tab-content" id="myTradeTabContent">
-    <div style="border-color:darkcyan;" class="tab-pane form-border fade show active" id="trade-hitters" role="tabpanel" aria-labelledby="trade-hitters-tab">
-        @*@Html.Partial( "~/Views/Shared/Players/Hitters/_ViewAllHittersPartial.cshtml" )*@
-        Ut arcu enim, dictum quis ultrices id, sagittis eget nulla sed nunc mi, congue ut ultricies ac, varius a eros donec porttitor, libero fermentum fringilla laoreet, eros arcu sodales ante, ut dictum risus lectus vel quam integer ultricies, nunc eget elementum euismod, orci enim vestibulum orci, nec suscipit urna odio et tellus suspendisse suscipit orci sit amet sem venenatis nec lobortis sem suscipit nullam nec imperdiet velit mauris eu nisi a felis imperdiet porta at ac nulla vivamus faucibus felis nec dolor pretium eget pellentesque dolor suscipit maecenas vitae enim arcu, at tincidunt nunc pellentesque eleifend vulputate lacus, vel semper sem ornare sit amet proin sem sapien, auctor vel faucibus id, aliquet vitae ipsum etiam auctor ultricies ante, at dapibus urna viverra sed nullam mi arcu, tempor vitae interdum a, sodales non urna vestibulum dignissim auctor mauris, ac elementum purus fermentum vitae duis placerat laoreet risus, sit amet eleifend tellus lobortis non vivamus iaculis dapibus leo a ornare cras vel sem at felis convallis mollis posuere ultrices dolor sed tellus arcu, accumsan a consectetur sit amet, volutpat eget lorem phasellus quis ipsum orci integer sodales tincidunt nibh a elementum ut ac libero nec orci euismod euismod nec at nulla duis.
+    </ul>
+    <div class="tab-content form-border" style="border-color:blue; float:left;" id="myTabContent">
 
+        <div style="border-color:darkcyan;" class="tab-pane form-border fade show active" id="trade-hitters" role="tabpanel" aria-labelledby="trade-hitters-tab">
+
+            @Html.Partial( "~/Views/Shared/Players/Hitters/_ViewAllHittersPartial.cshtml", Model )
+            @*Ut arcu enim, dictum quis ultrices id, sagittis eget nulla sed nunc mi, congue ut ultricies ac, varius a eros donec porttitor, libero fermentum fringilla laoreet, eros arcu sodales ante, ut dictum risus lectus vel quam integer ultricies, nunc eget elementum euismod, orci enim vestibulum orci, nec suscipit urna odio et tellus suspendisse suscipit orci sit amet sem venenatis nec lobortis sem suscipit nullam nec imperdiet velit mauris eu nisi a felis imperdiet porta at ac nulla vivamus faucibus felis nec dolor pretium eget pellentesque dolor suscipit maecenas vitae enim arcu, at tincidunt nunc pellentesque eleifend vulputate lacus, vel semper sem ornare sit amet proin sem sapien, auctor vel faucibus id, aliquet vitae ipsum etiam auctor ultricies ante, at dapibus urna viverra sed nullam mi arcu, tempor vitae interdum a, sodales non urna vestibulum dignissim auctor mauris, ac elementum purus fermentum vitae duis placerat laoreet risus, sit amet eleifend tellus lobortis non vivamus iaculis dapibus leo a ornare cras vel sem at felis convallis mollis posuere ultrices dolor sed tellus arcu, accumsan a consectetur sit amet, volutpat eget lorem phasellus quis ipsum orci integer sodales tincidunt nibh a elementum ut ac libero nec orci euismod euismod nec at nulla duis.*@
+
+        </div>
+        <div style="border-color:aquamarine" class="tab-pane show form-border fade" id="trade-pitchers" role="tabpanel" aria-labelledby="trade-pitchers-tab">
+            @Html.Partial( "~/Views/Shared/Players/Pitchers/_ViewAllPitchersPartial.cshtml", Model )
+            @*Malesuada faucibus porta aliquam nec consequat eros sed porttitor placerat dolor, accumsan imperdiet neque ornare in aenean non elit non leo porta mattis mauris non dolor nunc, id congue odio donec tellus nisl, semper id consectetur vitae, dapibus dictum nisl morbi sed augue purus sed dictum diam convallis tortor interdum volutpat phasellus dapibus arcu sit amet neque vulputate sed elementum orci fringilla in hac habitasse platea dictumst maecenas ut dui diam curabitur adipiscing vestibulum libero, nec varius dui pulvinar eget vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; aliquam dui neque, varius eu laoreet vel.*@
+
+        </div>
     </div>
-    <div style="border-color:aquamarine" class="tab-pane form-border fade" id="trade-pitchers" role="tabpanel" aria-labelledby="trade-pitchers-tab">
-        @*@Html.Partial( "~/Views/Shared/Players/Hitters/_ViewAllHittersPartial.cshtml")*@
-        Malesuada faucibus porta aliquam nec consequat eros sed porttitor placerat dolor, accumsan imperdiet neque ornare in aenean non elit non leo porta mattis mauris non dolor nunc, id congue odio donec tellus nisl, semper id consectetur vitae, dapibus dictum nisl morbi sed augue purus sed dictum diam convallis tortor interdum volutpat phasellus dapibus arcu sit amet neque vulputate sed elementum orci fringilla in hac habitasse platea dictumst maecenas ut dui diam curabitur adipiscing vestibulum libero, nec varius dui pulvinar eget vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; aliquam dui neque, varius eu laoreet vel.
 
-    </div>
+
+
 </div>
-
-
-

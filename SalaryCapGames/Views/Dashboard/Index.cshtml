@@ -1,28 +1,66 @@
-﻿@model SalaryCapGames.Views.WebViewModels.DashboardViewModels.DashboardIndexViewModel
+﻿@model SalaryCapGame.Views.WebViewModels.DashboardIndexViewModel.DashboardIndexViewModel
 
 @{
     ViewData[ "Title" ] = "DashboardIndex";
 }
 
-
-<br />
 <br />
 <h2>My Dashboard</h2>
 <hr />
 
-<div class="container-fluid">
-    <div class="row ">
-        <div class="col-6 form-border">
-            @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardPartial.cshtml", Model.FranchiseModel )
+<div class="container-fluid  col-6 form-border float-left" style="padding-left:10px 10px;">
+    <div class="row">
 
-        </div>
-        <div class="col-6">
-            @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardTradeTabsPartial.cshtml" )
-            @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardChartPartials.cshtml" )
-        </div>
+        @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardPartial.cshtml", Model )
+        @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardMyTeamTabsPartial.cshtml" )
     </div>
-
 </div>
+<div class="container-fluid col-6 form-border float-right" style="width:100%">
+    <div class="row" style="width:80%">
+        @*<div class="col-6 form-border float-left">*@
+        @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardTradeTabsPartial.cshtml", Model )
+        @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardChartPartials.cshtml", Model )
+    </div>
+</div>
+
+
+@*<div class="row ">
+        <div class="col-6 form-border">
+            @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardMyTeamTabsPartial.cshtml" )
+
+        </div>
+    </div>*@
+
+@*@if ( Model.SelectedFranchiseId > 0 )
+    {
+        <div class="row">
+            <div class="col-6">
+                @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardTradeTabsPartial.cshtml", Model )*@
+@*<hr />
+    <ul class="nav nav-tabs" id="viewTradeTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" style="background-color:darkcyan; color:wheat;" id="trade-myteam-tab" data-toggle="tab" href="#trade-myteam" role="tab" aria-controls="trade-myteam" aria-selected="true">My Team</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="trade-tab" style="background-color:darkolivegreen; color:wheat;" data-toggle="tab" href="#trade" role="tab" aria-controls="trade" aria-selected="false">Trade</a>
+        </li>
+
+    </ul>
+    <div class="tab-content form-border" style="border-color:blue; float:left;" id="tradeTabContent">
+
+        <div style="border-color:coral;" class="tab-pane form-border fade show active" id="trade-myteam" role="tabpanel" aria-labelledby="trade-myteam-tab">
+
+            @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardTradeTabsPartial.cshtml", Model )
+            @*Ut arcu enim, dictum quis ultrices id, sagittis eget nulla sed nunc mi, congue ut ultricies ac, varius a eros donec porttitor, libero fermentum fringilla laoreet, eros arcu sodales ante, ut dictum risus lectus vel quam integer ultricies, nunc eget elementum euismod, orci enim vestibulum orci, nec suscipit urna odio et tellus suspendisse suscipit orci sit amet sem venenatis nec lobortis sem suscipit nullam nec imperdiet velit mauris eu nisi a felis imperdiet porta at ac nulla vivamus faucibus felis nec dolor pretium eget pellentesque dolor suscipit maecenas vitae enim arcu, at tincidunt nunc pellentesque eleifend vulputate lacus, vel semper sem ornare sit amet proin sem sapien, auctor vel faucibus id, aliquet vitae ipsum etiam auctor ultricies ante, at dapibus urna viverra sed nullam mi arcu, tempor vitae interdum a, sodales non urna vestibulum dignissim auctor mauris, ac elementum purus fermentum vitae duis placerat laoreet risus, sit amet eleifend tellus lobortis non vivamus iaculis dapibus leo a ornare cras vel sem at felis convallis mollis posuere ultrices dolor sed tellus arcu, accumsan a consectetur sit amet, volutpat eget lorem phasellus quis ipsum orci integer sodales tincidunt nibh a elementum ut ac libero nec orci euismod euismod nec at nulla duis.*@
+
+@*</div>
+    <div style="border-color:darkmagenta" class="tab-pane show form-border fade" id="trade" role="tabpanel" aria-labelledby="trade">
+        @Html.Partial( "~/Views/Shared/DashboardPartials/_DashboardTradeTabsPartial.cshtml", Model )*@
+@*Malesuada faucibus porta aliquam nec consequat eros sed porttitor placerat dolor, accumsan imperdiet neque ornare in aenean non elit non leo porta mattis mauris non dolor nunc, id congue odio donec tellus nisl, semper id consectetur vitae, dapibus dictum nisl morbi sed augue purus sed dictum diam convallis tortor interdum volutpat phasellus dapibus arcu sit amet neque vulputate sed elementum orci fringilla in hac habitasse platea dictumst maecenas ut dui diam curabitur adipiscing vestibulum libero, nec varius dui pulvinar eget vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; aliquam dui neque, varius eu laoreet vel.*@
+
+@*</div>
+    </div>*@
+
 
 
 @section Scripts{

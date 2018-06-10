@@ -26,6 +26,7 @@ namespace SalaryCapData.Data
         public DbSet<HitterStats> HitterStats { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<FranchisePlayers> FranchisePlayers { get; set; }
+        public DbSet<FranchiseTemplate> FranchiseTemplate { get; set; }
 
         protected override void OnModelCreating( ModelBuilder builder )
         {

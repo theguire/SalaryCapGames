@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace SalaryCapGame.Views.WebViewModels.Franchise
+﻿namespace SalaryCapGame.Views.WebViewModels.Franchise
 {
     public class EditFranchiseModel
     {
-        public int Id { get; set; }
-        public int OwnerId { get; set; }
-        public int LeagueId { get; set; }
-        public string AbbreviatedName { get; set; }
-        public string ImageUrl { get; set; }
-        public string Name { get; set; }
+        private int Id { get; set; }
+        private int OwnerId { get; set; }
+        private int LeagueId { get; set; }
+        private string AbbreviatedName { get; set; }
+        private string ImageUrl { get; set; }
+        private string Name { get; set; }
     }
 }

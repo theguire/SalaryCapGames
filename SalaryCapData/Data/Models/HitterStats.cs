@@ -1,5 +1,7 @@
 ﻿using System;
 
+using static SalaryCapData.ConsumeJson.Models.Game.HitterPoints;
+
 namespace SalaryCapData.Data.Models
 {
     public class HitterStats
@@ -28,5 +30,36 @@ namespace SalaryCapData.Data.Models
         public int TotalBases { get; set; }
         public int Strikeouts { get; set; }
 
+
+        public int GetHitterPoints()
+        {
+            if ( this != null )
+            {
+                int hitPoints = this.Hits * (int)HitterPointValues.Hit;
+                int runPoints = this.Runs * (int)HitterPointValues.Run;
+                int doublePoints = this.Doubles * (int)HitterPointValues.Double;
+                int triplePoints = this.Triples * (int)HitterPointValues.Triple;
+                int homeRunPoints = this.HomeRuns * (int)HitterPointValues.HomeRun;
+                int rbiPoints = this.RBI * (int)HitterPointValues.RBI;
+                int walkPoints = this.Walks * (int)HitterPointValues.Walk;
+                int stolenBasePoints = this.StolenBases * (int)HitterPointValues.StolenBase;
+                int strikeoutPoints = this.Strikeouts * (int)HitterPointValues.Strikeout;
+                int sacrificePoints = this.Sacrifices;
+
+                return (hitPoints
+                        + runPoints
+                        + doublePoints
+                        + triplePoints
+                        + homeRunPoints
+                        + rbiPoints
+                        + walkPoints
+                        + stolenBasePoints
+                        + sacrificePoints
+                        + strikeoutPoints);
+            }
+            else
+                return 0;
+
+        }
     }
 }

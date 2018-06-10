@@ -1,85 +1,87 @@
-﻿@model IEnumerable<SalaryCapData.Data.Models.HitterStats>
-
-
-<table id="hittersTable" align="left" class="table row-border table-sm table-striped table-bordered" style="font-size:small; padding:0;" width:100%>
-    <thead>
-
-        <tr>
-            <th></th>
-            <th style="text-align:left">Player</th>
-            <th>Pos</th>
-            <th>Team</th>
-            <th>GP</th>
-            <th>AB</th>
-            <th>Hits</th>
-            <th>2B</th>
-            <th>3B</th>
-            <th>HR</th>
-            <th>R</th>
-            <th>RBI</th>
-            <th>BB</th>
-            <th>SB</th>
-            <th>SO</th>
-            <th>Value</th>
-            <th>Pts</th>
-        </tr>
-
-    </thead>
-    <tbody>
-        @foreach ( var item in Model )
-        {
+﻿@*@model IEnumerable<SalaryCapData.Data.Models.HitterStats>*@
+@model SalaryCapGame.Views.WebViewModels.DashboardIndexViewModel.DashboardIndexViewModel
+@*<div class="container" style="width:100%; margin:0; padding:0;">*@
+<div class="container">
+    <table id="hittersTable" align="left" class="table display float-left table-condensed row-border table-sm table-striped table-bordered" style="font-size:small; padding:0;" width:100%>
+        <thead>
 
             <tr>
-                <td class="details-control" id="addPlayer">
-                    <a href='@Url.Action( "AddHitter", "Players", new { franchiseId = 1, playerId = item.PlayerId })'>
-                        <i class="fa fa-plus-square" style="color:green;" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td style="text-align:left">@Html.DisplayFor( i => item.Player.FirstName ) @Html.DisplayFor( i => item.Player.LastName )</td>
-                <td>@Html.DisplayFor( i => item.Player.Position )</td>
-                <td>@Html.DisplayFor( i => item.Player.Team.Abbrev )</td>
-
-                <td>@Html.DisplayFor( i => item.GamesPlayed )</td>
-                <td>@Html.DisplayFor( i => item.AtBats )</td>
-                <td>@Html.DisplayFor( i => item.Hits )</td>
-                <td>@Html.DisplayFor( i => item.Doubles )</td>
-                <td>@Html.DisplayFor( i => item.Triples )</td>
-                <td>@Html.DisplayFor( i => item.HomeRuns )</td>
-                <td>@Html.DisplayFor( i => item.Runs )</td>
-                <td>@Html.DisplayFor( i => item.RBI )</td>
-                <td>@Html.DisplayFor( i => item.Walks )</td>
-                <td>@Html.DisplayFor( i => item.StolenBases )</td>
-                <td>@Html.DisplayFor( i => item.Strikeouts )</td>
-                <td>$@Html.DisplayFor( i => item.Player.InitialValue )</td>
-                <td>@Html.DisplayFor( i => item.Player.TotalPoints )</td>
-                @*<td style="text-align:left">@Html.DisplayFor( i => item.FirstName ) @Html.DisplayFor( i => item.LastName )</td>
-                    <td>@Html.DisplayFor( i => item.Position )</td>
-                    <td>@Html.DisplayFor( i => item.Team.Abbrev )</td>
-
-                    <td>@Html.DisplayFor( i => item.HitterStats.GamesPlayed )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.AtBats )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.Hits )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.Doubles )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.Triples )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.HomeRuns )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.Runs )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.RBI )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.Walks )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.StolenBases )</td>
-                    <td>@Html.DisplayFor( i => item.HitterStats.Strikeouts )</td>
-                    <td>$@Html.DisplayFor( i => item.InitialValue )</td>
-                    <td>@Html.DisplayFor( i => item.TotalPoints )</td>*@
+                <th></th>
+                <th style="text-align:left; padding:0;">Player</th>
+                <th>Pos</th>
+                <th>Team</th>
+                <th>GP</th>
+                <th>AB</th>
+                <th>Hits</th>
+                <th>2B</th>
+                <th>3B</th>
+                <th>HR</th>
+                <th>R</th>
+                <th>RBI</th>
+                <th>BB</th>
+                <th>SB</th>
+                <th>SO</th>
+                <th>Value</th>
+                <th>Pts</th>
             </tr>
-        }
 
-    </tbody>
-    <tfoot>
-        <tr>
-            <th></th>
-            <th>Player</th>
-            <th>Pos</th>
-            <th>Team</th>
+        </thead>
+        <tbody>
+            @foreach ( var item in Model.HittingFreeAgents )
+            {
 
-        </tr>
-    </tfoot>
-</table>
+                <tr>
+                    <td class="details-control" id="addPlayer">
+                        <a href='@Url.Action( "AddHitter", "Players", new { Model.SelectedFranchiseId, item.PlayerId })'>
+                            <i class="fa fa-plus-square" style="color:green;" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td style="text-align:left; padding:0;">@Html.DisplayFor( i => item.Player.FirstName ) @Html.DisplayFor( i => item.Player.LastName )</td>
+                    <td>@Html.DisplayFor( i => item.Player.Position )</td>
+                    <td>@Html.DisplayFor( i => item.Player.Team.Abbrev )</td>
+
+                    <td>@Html.DisplayFor( i => item.GamesPlayed )</td>
+                    <td>@Html.DisplayFor( i => item.AtBats )</td>
+                    <td>@Html.DisplayFor( i => item.Hits )</td>
+                    <td>@Html.DisplayFor( i => item.Doubles )</td>
+                    <td>@Html.DisplayFor( i => item.Triples )</td>
+                    <td>@Html.DisplayFor( i => item.HomeRuns )</td>
+                    <td>@Html.DisplayFor( i => item.Runs )</td>
+                    <td>@Html.DisplayFor( i => item.RBI )</td>
+                    <td>@Html.DisplayFor( i => item.Walks )</td>
+                    <td>@Html.DisplayFor( i => item.StolenBases )</td>
+                    <td>@Html.DisplayFor( i => item.Strikeouts )</td>
+                    <td>$@Html.DisplayFor( i => item.Player.InitialValue )</td>
+                    <td>@Html.DisplayFor( i => item.Player.TotalPoints )</td>
+                    @*<td style="text-align:left">@Html.DisplayFor( i => item.FirstName ) @Html.DisplayFor( i => item.LastName )</td>
+                        <td>@Html.DisplayFor( i => item.Position )</td>
+                        <td>@Html.DisplayFor( i => item.Team.Abbrev )</td>
+
+                        <td>@Html.DisplayFor( i => item.HitterStats.GamesPlayed )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.AtBats )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.Hits )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.Doubles )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.Triples )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.HomeRuns )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.Runs )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.RBI )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.Walks )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.StolenBases )</td>
+                        <td>@Html.DisplayFor( i => item.HitterStats.Strikeouts )</td>
+                        <td>$@Html.DisplayFor( i => item.InitialValue )</td>
+                        <td>@Html.DisplayFor( i => item.TotalPoints )</td>*@
+                </tr>
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>Player</th>
+                <th>Pos</th>
+                <th>Team</th>
+
+            </tr>
+        </tfoot>
+    </table>
+</div>

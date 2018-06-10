@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using SalaryCapData;
 using SalaryCapData.Data;
 
 using SalaryCapServices;
@@ -40,7 +41,7 @@ namespace SalaryCapGames
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-                    //DbInitializer.Initialize( context );
+                    DbInitializer.Initialize( context );
                     JsonService jsonService = new JsonService( context );
                     jsonService.UpdatePlayerRoster();
                     jsonService.UpdateDailyStats();

@@ -77,6 +77,7 @@ namespace SalaryCapGame.Controllers
                 Random rnd = new Random();
                 var newLeague = new League
                 {
+                    
                     Name = league.Name,
                     MaxNumberFranchises = league.MaxSize,
                     IsPrivate = league.IsPrivate,

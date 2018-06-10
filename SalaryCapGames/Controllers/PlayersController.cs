@@ -4,6 +4,8 @@ using SalaryCapData.Data.Models;
 
 using SalaryCapData.Interfaces;
 
+using SalaryCapGame.Views.WebViewModels.DashboardIndexViewModel;
+
 using System;
 using System.Linq;
 
@@ -42,15 +44,29 @@ namespace SalaryCapGame.Controllers
 
         public IActionResult ViewPitchers()
         {
-            var players = _players.GetPitcherStats().ToList();
-            return View( players );
+            var model = new DashboardIndexViewModel
+            {
+                FranchiseModel = null,
+                PitcherFreeAgents = _players.GetPitcherStats().ToList(),
+                SelectedFranchiseId = 1
+
+            };
+
+            return View( model );
         }
 
         public IActionResult ViewHitters()
         {
 
-            var players = _players.GetHitterStats().ToList();
-            return View( players );
+            var model = new DashboardIndexViewModel
+            {
+                FranchiseModel = null,
+                HittingFreeAgents = _players.GetHitterStats().ToList(),
+                SelectedFranchiseId = 1
+
+            };
+
+            return View( model );
         }
 
         public IActionResult ViewMyHitters( int franchiseId )
